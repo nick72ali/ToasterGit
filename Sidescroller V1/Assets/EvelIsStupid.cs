@@ -11,6 +11,6 @@ public class EvelIsStupid : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        Debug.Log("But Grim is actually dumb tho.");
 	}
 }
