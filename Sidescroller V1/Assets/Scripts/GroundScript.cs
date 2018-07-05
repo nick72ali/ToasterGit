@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script detects if player is on the ground, sets a public variable to store the information
 public class GroundScript : MonoBehaviour {
 
     //Declare variable for ground state

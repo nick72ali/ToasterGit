@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script is used to keep camera focused on the player
 public class CameraController : MonoBehaviour {
 
 

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Script dictates player character controls
 public class PlayerControlScript : MonoBehaviour {
 
    //Empty variable for vector 3 to use later
@@ -22,12 +24,12 @@ public class PlayerControlScript : MonoBehaviour {
         //Assign public variable to empty variable created earlier
         PlayerOnGround = GroundScript.PlayerOnGround;
 
-        //Allow script access to rigidbody
+        //Allow update function access to rigidbody
         Rigidbody rb;
 
         //Set Player's speed and jump height
-        float PlayerSpeed = 0.02f;
-        float PlayerJumpForce = 5;
+        float PlayerSpeed = 0.03f;
+        float PlayerJumpForce = 7;
 
         //while A key is pressed, move left
         if (Input.GetKey(KeyCode.A))
@@ -59,5 +61,30 @@ public class PlayerControlScript : MonoBehaviour {
             Debug.Log("Player jumping");
        
         }
+      
+        
 	}
+    private void FixedUpdate()
+    {
+        //Allows fixedupdate function access to rigidbody, sets variable for rigidbody to be assigned to
+        Rigidbody rb;
+        rb = GetComponent<Rigidbody>();
+
+        //Sets multiplers to player's jump, allows for variable jump gravity
+        float PlayerFallMult = 4f;
+        float PlayerLowJumpMult = 4f;
+
+        //Applies multiplers dependent on velocity and if the jump key is being held
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector3.up * Physics.gravity.y * (PlayerFallMult - 1) * Time.fixedDeltaTime;
+         
+
+        }
+        else if ((rb.velocity.y > 0) && !(Input.GetKey(KeyCode.W)))
+        {
+            rb.velocity += Vector3.up * Physics.gravity.y * (PlayerLowJumpMult - 1) * Time.fixedDeltaTime;
+        }
+    }
+
 }
