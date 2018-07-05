@@ -4,29 +4,26 @@ using UnityEngine;
 
 public class PlayerControlScript : MonoBehaviour {
 
-    Vector3 PlayerPos;
+    Rigidbody Player;
 	// Use this for initialization
 	void Start () {
-		
+        Player = GetComponent<Rigidbody>();
+       
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+        int PlayerSpeed = 5;
         //while A key is pressed
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            PlayerPos = transform.position;
-            PlayerPos.x -= 0.5f;
-            transform.position = PlayerPos;
+            Player.velocity = new Vector3(-PlayerSpeed, 0, 0);
         }
 
         //while D key is pressed
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
-            PlayerPos = transform.position;
-            PlayerPos.x += 0.5f;
-            transform.position = PlayerPos;
+            Player.velocity = new Vector3(PlayerSpeed, 0, 0);
         }
 	}
 }
