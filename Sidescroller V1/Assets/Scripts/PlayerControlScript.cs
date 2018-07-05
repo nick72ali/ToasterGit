@@ -4,20 +4,30 @@ using UnityEngine;
 
 public class PlayerControlScript : MonoBehaviour {
 
-   
+   //Empty variable for vector 3 to use later
     Vector3 PlayerPos;
+
+    //Create variable to recieve public variable from GroundScript
+    static int PlayerOnGround;
+
 	// Use this for initialization
 	void Start () {
         
-       
+      
 	}
 
 	// Update is called once per frame
 	void Update () {
 
+        //Assign public variable to empty variable created earlier
+        PlayerOnGround = GroundScript.PlayerOnGround;
+
+        //Allow script access to rigidbody
+        Rigidbody rb;
+
         //Set Player's speed and jump height
-        float PlayerSpeed = 0.05f;
-        float PlayerJumpHt = 5;
+        float PlayerSpeed = 0.02f;
+        float PlayerJumpForce = 5;
 
         //while A key is pressed, move left
         if (Input.GetKey(KeyCode.A))
@@ -40,11 +50,14 @@ public class PlayerControlScript : MonoBehaviour {
 
         }
         //while W key is pressed and player is on the ground, jump
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && (PlayerOnGround == 1))
         {
             
+            //The player's jump uses unity physics
+            rb = GetComponent<Rigidbody>();
+            rb.velocity = new Vector3(0, PlayerJumpForce, 0);
             Debug.Log("Player jumping");
-
+       
         }
 	}
 }

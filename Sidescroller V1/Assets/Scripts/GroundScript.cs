@@ -4,29 +4,22 @@ using UnityEngine;
 
 public class GroundScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    //Declare variable for ground state
+    public static int PlayerOnGround = 0;
 
-    //If the player is on the ground, it will assign a variable for use in the jump control
+    //Depending on player position relative to the ground, it will assign a value to the ground state variable
     public void OnCollisionEnter(Collision PlayerTouch)
     {
 
-       int PlayerOnGround = 1;
+       PlayerOnGround = 1;
         Debug.Log("Player is on ground");
-
+      
     }
     public void OnCollisionExit(Collision PlayerTouch)
     {
 
-        int PlayerOnGround = 0;
+        PlayerOnGround = 2;
         Debug.Log("Player is off the ground");
-
+      
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }
