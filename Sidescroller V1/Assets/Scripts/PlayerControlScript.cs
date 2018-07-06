@@ -29,7 +29,7 @@ public class PlayerControlScript : MonoBehaviour {
 
         //Set Player's speed and jump height
         float PlayerSpeed = 0.03f;
-        float PlayerJumpForce = 7;
+        float PlayerJumpForce = 6;
 
         //while A key is pressed, move left
         if (Input.GetKey(KeyCode.A))
