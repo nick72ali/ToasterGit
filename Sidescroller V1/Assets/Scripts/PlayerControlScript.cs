@@ -28,8 +28,8 @@ public class PlayerControlScript : MonoBehaviour {
         Rigidbody rb;
 
         //Set Player's speed and jump height
-        float PlayerSpeed = 0.03f;
-        float PlayerJumpForce = 6;
+        float PlayerSpeed = 0.04f;
+        float PlayerJumpForce = 7;
 
         //while A key is pressed, move left
         if (Input.GetKey(KeyCode.A))
