@@ -11,4 +11,5 @@ public class TestScript : MonoBehaviour {
             Debug.Log("Player Detected");
         }
     }
+    
 }
