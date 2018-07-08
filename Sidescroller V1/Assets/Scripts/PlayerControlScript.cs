@@ -12,6 +12,9 @@ public class PlayerControlScript : MonoBehaviour {
     //Create variable to recieve public variable from GroundScript
     static int PlayerOnGround;
 
+    //Public variable for animation script
+    public static int PlayerState;
+
 	// Use this for initialization
 	void Start () {
         
@@ -31,6 +34,9 @@ public class PlayerControlScript : MonoBehaviour {
         float PlayerSpeed = 0.04f;
         float PlayerJumpForce = 7;
 
+        //Idle playerstate
+        PlayerState = 0;
+
         //while A key is pressed, move left
         if (Input.GetKey(KeyCode.A)&& !(Input.GetKey(KeyCode.LeftShift)))
         {
@@ -38,6 +44,7 @@ public class PlayerControlScript : MonoBehaviour {
             PlayerPos = transform.position;
             PlayerPos.x -= PlayerSpeed;
             transform.position = PlayerPos;
+            PlayerState = 1;
             Debug.Log("Player moving left");
 
 
@@ -49,6 +56,7 @@ public class PlayerControlScript : MonoBehaviour {
             PlayerPos = transform.position;
             PlayerPos.x += PlayerSpeed;
             transform.position = PlayerPos;
+            PlayerState = 2;
             Debug.Log("Player moving right");
 
         }
