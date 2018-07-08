@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89284cd65916a4488cae4e6825240e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textures:
+  PlayerWalkFrames:
   - {fileID: 2800000, guid: 02575b080f3cb1f4a8222bab83ee40f1, type: 3}
   - {fileID: 2800000, guid: 7c1ac4429fcfe714c986c54cb24d64ad, type: 3}
   - {fileID: 2800000, guid: eabe3bdb67fadab42aacfcecedffacee, type: 3}
@@ -643,6 +643,25 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 7b4a01303807fbd47a9cd36aeaa0a7c8, type: 3}
   - {fileID: 2800000, guid: 58735db33e866d84f8bb0688c09a029f, type: 3}
   - {fileID: 2800000, guid: 1cb934e6edcd01049bcd7b6574786dd2, type: 3}
+  PlayerIdleFrames:
+  - {fileID: 2800000, guid: 6609c4f7dd900ae4dbf865e3d23fe36d, type: 3}
+  - {fileID: 2800000, guid: 40f3956792fb2424693796586879607f, type: 3}
+  - {fileID: 2800000, guid: 966daab315ee48a4abdf48ecbb3a2cb9, type: 3}
+  - {fileID: 2800000, guid: 0d5ebddf4cd77404db8abe0b0eade5b5, type: 3}
+  - {fileID: 2800000, guid: 610f73fb4cd9f184d9669127f0658658, type: 3}
+  - {fileID: 2800000, guid: f65161918c4a20b4ea47fd9235bdd1df, type: 3}
+  - {fileID: 2800000, guid: 9476936c819d67c4483a4298b67c6eee, type: 3}
+  - {fileID: 2800000, guid: 5b03352d79147bc4e90c4c8923a61f88, type: 3}
+  - {fileID: 2800000, guid: a614801644ab59441a4ca64fbc60439e, type: 3}
+  - {fileID: 2800000, guid: 263ad8ffb54689f44bc01e3a92bc5d9d, type: 3}
+  - {fileID: 2800000, guid: b1bbf5691f0f6c047b65c7574f6b1185, type: 3}
+  - {fileID: 2800000, guid: f1eca93be164a0048b98583232a22a97, type: 3}
+  - {fileID: 2800000, guid: 584606c9e930cea419f90dee11d95f0a, type: 3}
+  - {fileID: 2800000, guid: 5e44f18946b04d245a8f5077efa0ef63, type: 3}
+  - {fileID: 2800000, guid: 63d655bdeda039442b08132161f91f20, type: 3}
+  - {fileID: 2800000, guid: ba886e50de833334188446778a477f82, type: 3}
+  - {fileID: 2800000, guid: 9b25a533532cc034ba2ac9f57f654940, type: 3}
+  - {fileID: 2800000, guid: 117957b2c615493478c549684a305db0, type: 3}
 --- !u!1 &860040182
 GameObject:
   m_ObjectHideFlags: 0

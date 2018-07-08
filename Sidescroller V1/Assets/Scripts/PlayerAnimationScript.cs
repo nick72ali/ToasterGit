@@ -6,14 +6,16 @@ public class PlayerAnimationScript : MonoBehaviour {
 
     int AnimationFrame;
     public Texture[] PlayerWalkFrames;
+    public Texture[] PlayerIdleFrames;
 	// Use this for initialization
 	void Start () {
 
         InvokeRepeating("MoveRight",0,0.125f);
-
+    
   
     }
 
+ 
     void MoveRight()
     {
         if (Input.GetKey(KeyCode.D))
@@ -26,6 +28,7 @@ public class PlayerAnimationScript : MonoBehaviour {
 
 
     }
+
 
     // Update is called once per frame
     void Update () {
