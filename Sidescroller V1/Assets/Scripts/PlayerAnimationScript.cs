@@ -61,7 +61,7 @@ public class PlayerAnimationScript : MonoBehaviour {
     void Jump()
     {
         
-        if (Input.GetKey(KeyCode.W) | (Input.GetKey(KeyCode.W)))
+        if (Input.GetKey(KeyCode.W) || (Input.GetKeyDown(KeyCode.W)))
         {
             AnimationFrame++;
             AnimationFrame %= PlayerJumpFrames.Length;
