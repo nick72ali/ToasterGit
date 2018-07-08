@@ -662,6 +662,34 @@ MonoBehaviour:
   - {fileID: 2800000, guid: ba886e50de833334188446778a477f82, type: 3}
   - {fileID: 2800000, guid: 9b25a533532cc034ba2ac9f57f654940, type: 3}
   - {fileID: 2800000, guid: 117957b2c615493478c549684a305db0, type: 3}
+  PlayerJumpFrames:
+  - {fileID: 2800000, guid: 57053dba80a36e44f9e8ef4965db876d, type: 3}
+  - {fileID: 2800000, guid: bd5ac6e566519414299715a65baf68f1, type: 3}
+  - {fileID: 2800000, guid: ccc53fb0db061184086c4b52db93011a, type: 3}
+  - {fileID: 2800000, guid: 18b4e79b503a4a3498ca2bbd260736da, type: 3}
+  - {fileID: 2800000, guid: 90f66e021ca212a4c9e059334edf8de7, type: 3}
+  PlayerFallFrames:
+  - {fileID: 2800000, guid: 5442989b5e04b4745aa710dc37b99a6a, type: 3}
+  - {fileID: 2800000, guid: 7dcef34b71100084db547e5a72478d19, type: 3}
+  - {fileID: 2800000, guid: b470abebbd67f3e449c8ec0489e1d739, type: 3}
+  PlayerSpellChargeFrames:
+  - {fileID: 2800000, guid: 4d1de17c63feb0b44978fed0c8e0dfd0, type: 3}
+  - {fileID: 2800000, guid: e50d1f36b52b6b34faf52176b9eb1295, type: 3}
+  - {fileID: 2800000, guid: 91abaf9fd74aefd48808e7581b95fc58, type: 3}
+  - {fileID: 2800000, guid: 692d3e98af2d1c64fa7e5f05d903cbd3, type: 3}
+  - {fileID: 2800000, guid: 31db7949ed3cddc42898d86bd8dcbb2e, type: 3}
+  - {fileID: 2800000, guid: ba1d39685e5434843a0cc86e8d86509b, type: 3}
+  - {fileID: 2800000, guid: d99c8eb9fbde4de47a4311d04cbecf3d, type: 3}
+  PlayerSpellCastFrames:
+  - {fileID: 2800000, guid: 0b2648f4b1d6ee841b1aa74a0dfd1069, type: 3}
+  - {fileID: 2800000, guid: f09bbba376bd1a942b5db91a958e4cc7, type: 3}
+  - {fileID: 2800000, guid: 7d5531b47d7f2d9438613760975edcdf, type: 3}
+  - {fileID: 2800000, guid: 20e50b354ad0fec468ec4e53b4c303c4, type: 3}
+  PlayerSpellCastUpFrames:
+  - {fileID: 2800000, guid: 33323a8581d239d469e2af2081b3a867, type: 3}
+  - {fileID: 2800000, guid: 00b26e5ea362477408b46bc14590c2bf, type: 3}
+  - {fileID: 2800000, guid: 2d264bd70cc5f164780dba1238857f3b, type: 3}
+  - {fileID: 2800000, guid: fb40aa5b18e894d47b6943d3e0efd7a4, type: 3}
 --- !u!1 &860040182
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,7 +852,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1170491647}
   m_LocalRotation: {x: -0, y: 0.6427876, z: -0.76604444, w: 0}
-  m_LocalPosition: {x: 4.499993, y: 3.2010007, z: -12.150445}
+  m_LocalPosition: {x: 4.499993, y: 3.81, z: -12.87}
   m_LocalScale: {x: 41.666676, y: 41.951305, z: 2.6888618}
   m_Children: []
   m_Father: {fileID: 794867734}

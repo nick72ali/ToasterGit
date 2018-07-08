@@ -34,8 +34,7 @@ public class PlayerControlScript : MonoBehaviour {
         float PlayerSpeed = 0.04f;
         float PlayerJumpForce = 7;
 
-        //Idle playerstate
-        PlayerState = 0;
+      
 
         //while A key is pressed, move left
         if (Input.GetKey(KeyCode.A)&& !(Input.GetKey(KeyCode.LeftShift)))
@@ -44,7 +43,6 @@ public class PlayerControlScript : MonoBehaviour {
             PlayerPos = transform.position;
             PlayerPos.x -= PlayerSpeed;
             transform.position = PlayerPos;
-            PlayerState = 1;
             Debug.Log("Player moving left");
 
 
@@ -56,7 +54,6 @@ public class PlayerControlScript : MonoBehaviour {
             PlayerPos = transform.position;
             PlayerPos.x += PlayerSpeed;
             transform.position = PlayerPos;
-            PlayerState = 2;
             Debug.Log("Player moving right");
 
         }
@@ -83,13 +80,15 @@ public class PlayerControlScript : MonoBehaviour {
         float PlayerFallMult = 4f;
         float PlayerLowJumpMult = 4f;
 
-        //Applies multiplers dependent on velocity and if the jump key is being held
+        //Applies gravity multiplier for when player is falling
         if (rb.velocity.y < 0)
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (PlayerFallMult - 1) * Time.fixedDeltaTime;
          
 
         }
+
+        //Applies multiplier for a lower jump by tapping the jump key
         else if ((rb.velocity.y > 0) && !(Input.GetKey(KeyCode.W) && !(Input.GetKey(KeyCode.LeftShift))))
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (PlayerLowJumpMult - 1) * Time.fixedDeltaTime;
