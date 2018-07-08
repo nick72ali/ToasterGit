@@ -32,7 +32,7 @@ public class PlayerControlScript : MonoBehaviour {
         float PlayerJumpForce = 7;
 
         //while A key is pressed, move left
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A)&& !(Input.GetKey(KeyCode.LeftShift)))
         {
           
             PlayerPos = transform.position;
@@ -43,7 +43,7 @@ public class PlayerControlScript : MonoBehaviour {
 
         }
         //while D key is pressed, move right
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D)&& !(Input.GetKey(KeyCode.LeftShift)))
         {
             
             PlayerPos = transform.position;
@@ -53,7 +53,7 @@ public class PlayerControlScript : MonoBehaviour {
 
         }
         //while W key is pressed and player is on the ground, jump
-        if (Input.GetKeyDown(KeyCode.W) && (PlayerOnGround == 1))
+        if (Input.GetKeyDown(KeyCode.W) && (PlayerOnGround == 1) && !(Input.GetKey(KeyCode.LeftShift)))
         {
             
             //The player's jump uses unity physics
@@ -82,7 +82,7 @@ public class PlayerControlScript : MonoBehaviour {
          
 
         }
-        else if ((rb.velocity.y > 0) && !(Input.GetKey(KeyCode.W)))
+        else if ((rb.velocity.y > 0) && !(Input.GetKey(KeyCode.W) && !(Input.GetKey(KeyCode.LeftShift))))
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (PlayerLowJumpMult - 1) * Time.fixedDeltaTime;
         }
