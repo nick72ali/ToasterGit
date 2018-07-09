@@ -6,12 +6,14 @@ public class PlayerAnimationScript : MonoBehaviour {
 
     Rigidbody rb;
 
-
+    //Variable for changing animation frames
     int AnimationFrame;
 
+    //Public variables from other scripts
     static int PlayerState;
     static int PlayerOnGround;
 
+    //Arrays where animation frames are stored
     public Texture[] PlayerWalkFrames;
     public Texture[] PlayerIdleFrames;
     public Texture[] PlayerJumpFrames;
@@ -25,16 +27,18 @@ public class PlayerAnimationScript : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         PlayerState = PlayerControlScript.PlayerState;
         PlayerOnGround = GroundScript.PlayerOnGround;
+
+        //Timers for animation functions
         InvokeRepeating("MoveRight",0,0.125f);
         InvokeRepeating("Idle", 0, 0.125f);
         InvokeRepeating("Jump", 0, 0.125f);
         InvokeRepeating("Fall", 0, 0.125f);
-        InvokeRepeating("SpellCharge", 0, 0.125f);
-        InvokeRepeating("SpellCast", 0, 0.125f);
-        InvokeRepeating("SpellCastUp", 0, 0.125f);
+        InvokeRepeating("SpellChain", 0, 0.125f);
+        InvokeRepeating("SpellChain", 0, 0.125f);
   
     }
-
+    
+  
  void Idle()
     {
         if (!(Input.GetKey(KeyCode.D) && !(Input.GetKey(KeyCode.W) && !(Input.GetKey(KeyCode.A) && !(Input.GetKeyDown(KeyCode.W))))))
@@ -66,6 +70,8 @@ public class PlayerAnimationScript : MonoBehaviour {
             AnimationFrame++;
             AnimationFrame %= PlayerJumpFrames.Length;
             GetComponent<Renderer>().material.mainTexture = PlayerJumpFrames[AnimationFrame];
+            
+
         }
     }
      void Fall()
@@ -78,35 +84,32 @@ public class PlayerAnimationScript : MonoBehaviour {
         }
     }
 
-    void SpellCharge()
+    void SpellChain()
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
             AnimationFrame++;
             AnimationFrame %= PlayerSpellChargeFrames.Length;
             GetComponent<Renderer>().material.mainTexture = PlayerSpellChargeFrames[AnimationFrame];
+
+            if ((Input.GetKey(KeyCode.D)))
+            {
+                AnimationFrame++;
+                AnimationFrame %= PlayerSpellCastFrames.Length;
+                GetComponent<Renderer>().material.mainTexture = PlayerSpellCastFrames[AnimationFrame];
+            }
+
+            if ((Input.GetKey(KeyCode.W)))
+            {
+                AnimationFrame++;
+                AnimationFrame %= PlayerSpellCastUpFrames.Length;
+                GetComponent<Renderer>().material.mainTexture = PlayerSpellCastUpFrames[AnimationFrame];
+            }
         }
     }
 
-    void SpellCast()
-    {
-        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.D)))
-        {
-            AnimationFrame++;
-            AnimationFrame %= PlayerSpellCastFrames.Length;
-            GetComponent<Renderer>().material.mainTexture = PlayerSpellCastFrames[AnimationFrame];
-        }
-    }
-
-    void SpellCastUp()
-    {
-        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.W)))
-        {
-            AnimationFrame++;
-            AnimationFrame %= PlayerSpellCastUpFrames.Length;
-            GetComponent<Renderer>().material.mainTexture = PlayerSpellCastUpFrames[AnimationFrame];
-        }
-    }
+  
+   
     // Update is called once per frame
     void Update () {
 
