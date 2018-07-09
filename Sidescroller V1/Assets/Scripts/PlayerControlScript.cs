@@ -12,8 +12,7 @@ public class PlayerControlScript : MonoBehaviour {
     //Create variable to recieve public variable from GroundScript
     static int PlayerOnGround;
 
-    //Public variable for animation script
-    public static int PlayerState;
+
 
 	// Use this for initialization
 	void Start () {

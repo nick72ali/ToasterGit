@@ -9,8 +9,10 @@ public class PlayerAnimationScript : MonoBehaviour {
     //Variable for changing animation frames
     int AnimationFrame;
 
+    //Public variable for spell casting script
+    public static int PlayerSpellCastState;
+
     //Public variables from other scripts
-    static int PlayerState;
     static int PlayerOnGround;
 
     //Arrays where animation frames are stored
@@ -19,13 +21,11 @@ public class PlayerAnimationScript : MonoBehaviour {
     public Texture[] PlayerJumpFrames;
     public Texture[] PlayerFallFrames;
     public Texture[] PlayerSpellChargeFrames;
-    public Texture[] PlayerSpellCastFrames;
-    public Texture[] PlayerSpellCastUpFrames;
+   
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
-        PlayerState = PlayerControlScript.PlayerState;
         PlayerOnGround = GroundScript.PlayerOnGround;
 
         //Timers for animation functions
@@ -35,8 +35,11 @@ public class PlayerAnimationScript : MonoBehaviour {
         InvokeRepeating("Fall", 0, 0.125f);
         InvokeRepeating("SpellChain", 0, 0.125f);
         InvokeRepeating("SpellChain", 0, 0.125f);
+        InvokeRepeating("SpellChain", 0, 0.125f);
+        
   
     }
+ 
  
 
     void Idle()
@@ -98,9 +101,13 @@ public class PlayerAnimationScript : MonoBehaviour {
     {   
         if (rb.velocity.y < 0)
         {
-            AnimationFrame++;
-            AnimationFrame %= PlayerFallFrames.Length;
-            GetComponent<Renderer>().material.mainTexture = PlayerFallFrames[AnimationFrame];
+           
+            
+                AnimationFrame++;
+                AnimationFrame %= PlayerFallFrames.Length;
+                GetComponent<Renderer>().material.mainTexture = PlayerFallFrames[AnimationFrame];
+            
+     
         }
     }
 
@@ -111,19 +118,20 @@ public class PlayerAnimationScript : MonoBehaviour {
             AnimationFrame++;
             AnimationFrame %= PlayerSpellChargeFrames.Length;
             GetComponent<Renderer>().material.mainTexture = PlayerSpellChargeFrames[AnimationFrame];
+            PlayerSpellCastState = 1;
 
             if ((Input.GetKey(KeyCode.D)))
             {
-                AnimationFrame++;
-                AnimationFrame %= PlayerSpellCastFrames.Length;
-                GetComponent<Renderer>().material.mainTexture = PlayerSpellCastFrames[AnimationFrame];
+               // AnimationFrame++;
+               // AnimationFrame %= PlayerSpellCastFrames.Length;
+               // GetComponent<Renderer>().material.mainTexture = PlayerSpellCastFrames[AnimationFrame];
             }
 
             if ((Input.GetKey(KeyCode.W)))
             {
-                AnimationFrame++;
-                AnimationFrame %= PlayerSpellCastUpFrames.Length;
-                GetComponent<Renderer>().material.mainTexture = PlayerSpellCastUpFrames[AnimationFrame];
+               // AnimationFrame++;
+               // AnimationFrame %= PlayerSpellCastUpFrames.Length;
+               // GetComponent<Renderer>().material.mainTexture = PlayerSpellCastUpFrames[AnimationFrame];
             }
         }
     }
