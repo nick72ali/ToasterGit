@@ -118,20 +118,16 @@ public class PlayerAnimationScript : MonoBehaviour {
             AnimationFrame++;
             AnimationFrame %= PlayerSpellChargeFrames.Length;
             GetComponent<Renderer>().material.mainTexture = PlayerSpellChargeFrames[AnimationFrame];
-            PlayerSpellCastState = 1;
+            
 
             if ((Input.GetKey(KeyCode.D)))
             {
-               // AnimationFrame++;
-               // AnimationFrame %= PlayerSpellCastFrames.Length;
-               // GetComponent<Renderer>().material.mainTexture = PlayerSpellCastFrames[AnimationFrame];
+                PlayerSpellCastState = 1;
             }
 
             if ((Input.GetKey(KeyCode.W)))
             {
-               // AnimationFrame++;
-               // AnimationFrame %= PlayerSpellCastUpFrames.Length;
-               // GetComponent<Renderer>().material.mainTexture = PlayerSpellCastUpFrames[AnimationFrame];
+                PlayerSpellCastState = 2;
             }
         }
     }
