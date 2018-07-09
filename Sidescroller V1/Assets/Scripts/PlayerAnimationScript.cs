@@ -41,11 +41,23 @@ public class PlayerAnimationScript : MonoBehaviour {
 
     void Idle()
     {
-        if (!(Input.GetKey(KeyCode.D) && !(Input.GetKey(KeyCode.W) && !(Input.GetKey(KeyCode.A) && !(Input.GetKeyDown(KeyCode.W))))))
+        if (!(Input.GetKey(KeyCode.D)))
         {
-            AnimationFrame++;
-            AnimationFrame %= PlayerIdleFrames.Length;
-            GetComponent<Renderer>().material.mainTexture = PlayerIdleFrames[AnimationFrame];
+            if (!(Input.GetKey(KeyCode.A)))
+            {
+                if (!(Input.GetKey(KeyCode.W)))
+                {
+                    if (!(Input.GetKeyDown(KeyCode.W)))
+                    {
+                        AnimationFrame++;
+                        AnimationFrame %= PlayerIdleFrames.Length;
+                        GetComponent<Renderer>().material.mainTexture = PlayerIdleFrames[AnimationFrame];
+                    }
+
+                    
+                }
+            }
+         
         }
 
     }
@@ -67,11 +79,15 @@ public class PlayerAnimationScript : MonoBehaviour {
         
         if (Input.GetKey(KeyCode.W) || (Input.GetKeyDown(KeyCode.W)))
         {
-            if (rb.velocity.y > 0)
+            if (rb.velocity.y > 0.5f)
             {
-                AnimationFrame++;
-                AnimationFrame %= PlayerJumpFrames.Length;
-                GetComponent<Renderer>().material.mainTexture = PlayerJumpFrames[AnimationFrame];
+                
+                
+                    AnimationFrame++;
+                    AnimationFrame %= PlayerJumpFrames.Length;
+                    GetComponent<Renderer>().material.mainTexture = PlayerJumpFrames[AnimationFrame];
+                
+           
             }
         
             
@@ -116,6 +132,6 @@ public class PlayerAnimationScript : MonoBehaviour {
    
     // Update is called once per frame
     void Update () {
-
+        Debug.Log("Player velocity is" + rb.velocity.y);
 	}
 }

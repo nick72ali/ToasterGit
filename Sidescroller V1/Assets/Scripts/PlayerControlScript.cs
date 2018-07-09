@@ -40,10 +40,14 @@ public class PlayerControlScript : MonoBehaviour {
         if (Input.GetKey(KeyCode.A)&& !(Input.GetKey(KeyCode.LeftShift)))
         {
           
+          
+            
             PlayerPos = transform.position;
             PlayerPos.x -= PlayerSpeed;
             transform.position = PlayerPos;
             Debug.Log("Player moving left");
+            
+       
 
 
         }
@@ -51,10 +55,14 @@ public class PlayerControlScript : MonoBehaviour {
         if (Input.GetKey(KeyCode.D)&& !(Input.GetKey(KeyCode.LeftShift)))
         {
             
+          
+            
             PlayerPos = transform.position;
             PlayerPos.x += PlayerSpeed;
             transform.position = PlayerPos;
             Debug.Log("Player moving right");
+            
+
 
         }
         //while W key is pressed and player is on the ground, jump
