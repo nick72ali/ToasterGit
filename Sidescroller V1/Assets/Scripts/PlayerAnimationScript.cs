@@ -37,9 +37,9 @@ public class PlayerAnimationScript : MonoBehaviour {
         InvokeRepeating("SpellChain", 0, 0.125f);
   
     }
-    
-  
- void Idle()
+ 
+
+    void Idle()
     {
         if (!(Input.GetKey(KeyCode.D) && !(Input.GetKey(KeyCode.W) && !(Input.GetKey(KeyCode.A) && !(Input.GetKeyDown(KeyCode.W))))))
         {
@@ -67,9 +67,13 @@ public class PlayerAnimationScript : MonoBehaviour {
         
         if (Input.GetKey(KeyCode.W) || (Input.GetKeyDown(KeyCode.W)))
         {
-            AnimationFrame++;
-            AnimationFrame %= PlayerJumpFrames.Length;
-            GetComponent<Renderer>().material.mainTexture = PlayerJumpFrames[AnimationFrame];
+            if (rb.velocity.y > 0)
+            {
+                AnimationFrame++;
+                AnimationFrame %= PlayerJumpFrames.Length;
+                GetComponent<Renderer>().material.mainTexture = PlayerJumpFrames[AnimationFrame];
+            }
+        
             
 
         }
