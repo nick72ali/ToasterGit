@@ -14,6 +14,8 @@ public class PlayerSpellCastScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         PlayerSpellCastState = PlayerAnimationScript.PlayerSpellCastState;
+        InvokeRepeating("CastFireBallRight", 0, 0.125f);
+        InvokeRepeating("CastFireBallUpRight", 0, 0.125f);
 	}
 	
     void CastFireBallRight()
