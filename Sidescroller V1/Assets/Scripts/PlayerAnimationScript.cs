@@ -36,12 +36,17 @@ public class PlayerAnimationScript : MonoBehaviour {
         InvokeRepeating("SpellChain", 0, 0.125f);
         InvokeRepeating("SpellChain", 0, 0.125f);
         InvokeRepeating("SpellChain", 0, 0.125f);
+        InvokeRepeating("ResetSpellChain", 0, 2);
+       
         
   
     }
  
- 
-
+ void ResetSpellChain()
+    {
+        PlayerSpellCastState = 0;
+    }
+    
     void Idle()
     {
         if (!(Input.GetKey(KeyCode.D)))
@@ -120,12 +125,12 @@ public class PlayerAnimationScript : MonoBehaviour {
             GetComponent<Renderer>().material.mainTexture = PlayerSpellChargeFrames[AnimationFrame];
             
 
-            if ((Input.GetKey(KeyCode.D)))
+            if ((Input.GetKeyDown(KeyCode.D)))
             {
                 PlayerSpellCastState = 1;
             }
 
-            if ((Input.GetKey(KeyCode.W)))
+            if ((Input.GetKeyDown(KeyCode.W)))
             {
                 PlayerSpellCastState = 2;
             }

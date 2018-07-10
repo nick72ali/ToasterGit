@@ -6,36 +6,44 @@ public class PlayerSpellCastScript : MonoBehaviour {
 
     int AnimationFrame;
 
-    public Texture[] PlayerSpellCastFrames;
-    public Texture[] PlayerSpellCastUpFrames;
+    public Texture[] PlayerSpellCastFramesRight;
+    public Texture[] PlayerSpellCastUpFramesRight;
 
-    
-    int PlayerSpellCastState;
+
+    //Calling Public variables from animation script
+    public GameObject PlayerObject;
+    private PlayerAnimationScript AnimationVariableAccess;
+    private int PlayerSpellCastState;
 
     // Use this for initialization
     void Start () {
-        PlayerSpellCastState = GameObject.Find("Player").GetComponent<PlayerAnimationScript>().PlayerSpellCastState;
+
+        AnimationVariableAccess = PlayerObject.GetComponent<PlayerAnimationScript>();
+       
+
         InvokeRepeating("CastFireBallRight", 0, 0.125f);
         InvokeRepeating("CastFireBallUpRight", 0, 0.125f);
 	}
 	
     void CastFireBallRight()
     {
+        PlayerSpellCastState = AnimationVariableAccess.PlayerSpellCastState;
         if (PlayerSpellCastState == 1)
         {
             AnimationFrame++;
-            AnimationFrame %= PlayerSpellCastFrames.Length;
-            GetComponent<Renderer>().material.mainTexture = PlayerSpellCastFrames[AnimationFrame];
+            AnimationFrame %= PlayerSpellCastFramesRight.Length;
+            GetComponent<Renderer>().material.mainTexture = PlayerSpellCastFramesRight[AnimationFrame];
         }
     }
 
     void CastFireBallUpRight()
     {
+        PlayerSpellCastState = AnimationVariableAccess.PlayerSpellCastState;
         if (PlayerSpellCastState == 2)
         {
             AnimationFrame++;
-            AnimationFrame %= PlayerSpellCastUpFrames.Length;
-            GetComponent<Renderer>().material.mainTexture = PlayerSpellCastUpFrames[AnimationFrame];
+            AnimationFrame %= PlayerSpellCastUpFramesRight.Length;
+            GetComponent<Renderer>().material.mainTexture = PlayerSpellCastUpFramesRight[AnimationFrame];
         }
     }
 	// Update is called once per frame
