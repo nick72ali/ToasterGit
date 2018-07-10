@@ -9,11 +9,12 @@ public class PlayerSpellCastScript : MonoBehaviour {
     public Texture[] PlayerSpellCastFrames;
     public Texture[] PlayerSpellCastUpFrames;
 
-    static int PlayerSpellCastState;
+    
+    int PlayerSpellCastState;
 
     // Use this for initialization
     void Start () {
-        PlayerSpellCastState = PlayerAnimationScript.PlayerSpellCastState;
+        PlayerSpellCastState = GameObject.Find("Player").GetComponent<PlayerAnimationScript>().PlayerSpellCastState;
         InvokeRepeating("CastFireBallRight", 0, 0.125f);
         InvokeRepeating("CastFireBallUpRight", 0, 0.125f);
 	}

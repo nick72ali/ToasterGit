@@ -10,7 +10,7 @@ public class PlayerAnimationScript : MonoBehaviour {
     int AnimationFrame;
 
     //Public variable for spell casting script
-    public static int PlayerSpellCastState;
+    public int PlayerSpellCastState;
 
     //Public variables from other scripts
     static int PlayerOnGround;
