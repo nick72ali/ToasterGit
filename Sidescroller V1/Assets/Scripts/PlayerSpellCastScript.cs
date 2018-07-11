@@ -2,32 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerSpellCastScript : MonoBehaviour {
 
     int AnimationFrame;
 
     public Texture[] PlayerSpellCastFramesRight;
     public Texture[] PlayerSpellCastUpFramesRight;
-
+    public Texture[] PlayerSpellChargeFrames;
 
     //Calling Public variables from animation script
-    public GameObject PlayerObject;
-    private PlayerAnimationScript AnimationVariableAccess;
-    private int PlayerSpellCastState;
-
+    public int PlayerSpellCastState;
+    
     // Use this for initialization
     void Start () {
 
-        AnimationVariableAccess = PlayerObject.GetComponent<PlayerAnimationScript>();
-       
 
+        InvokeRepeating("SpellChain", 0, 0.125f);
         InvokeRepeating("CastFireBallRight", 0, 0.125f);
         InvokeRepeating("CastFireBallUpRight", 0, 0.125f);
+        InvokeRepeating("ResetState", 0, 0.125f);
+      
 	}
-	
+
+    void ResetState()
+    {
+        PlayerSpellCastState = 0;
+    }
+
+    void SpellChain()
+    {
+       
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            AnimationFrame++;
+            AnimationFrame %= PlayerSpellChargeFrames.Length;
+            GetComponent<Renderer>().material.mainTexture = PlayerSpellChargeFrames[AnimationFrame];
+
+
+            if ((Input.GetKeyDown(KeyCode.D)))
+            {
+                PlayerSpellCastState = 1;
+            }
+
+            if ((Input.GetKeyDown(KeyCode.W)))
+            {
+                PlayerSpellCastState = 2;
+            }
+        }
+    }
+
     void CastFireBallRight()
     {
-        PlayerSpellCastState = AnimationVariableAccess.PlayerSpellCastState;
+        
         if (PlayerSpellCastState == 1)
         {
             AnimationFrame++;
@@ -38,7 +65,7 @@ public class PlayerSpellCastScript : MonoBehaviour {
 
     void CastFireBallUpRight()
     {
-        PlayerSpellCastState = AnimationVariableAccess.PlayerSpellCastState;
+       
         if (PlayerSpellCastState == 2)
         {
             AnimationFrame++;

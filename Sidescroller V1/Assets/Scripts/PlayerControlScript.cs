@@ -38,31 +38,22 @@ public class PlayerControlScript : MonoBehaviour {
         //while A key is pressed, move left
         if (Input.GetKey(KeyCode.A)&& !(Input.GetKey(KeyCode.LeftShift)))
         {
-          
-          
-            
+                      
             PlayerPos = transform.position;
             PlayerPos.x -= PlayerSpeed;
             transform.position = PlayerPos;
             Debug.Log("Player moving left");
             
-       
-
-
         }
         //while D key is pressed, move right
         if (Input.GetKey(KeyCode.D)&& !(Input.GetKey(KeyCode.LeftShift)))
         {
-            
-          
-            
+                        
             PlayerPos = transform.position;
             PlayerPos.x += PlayerSpeed;
             transform.position = PlayerPos;
             Debug.Log("Player moving right");
             
-
-
         }
         //while W key is pressed and player is on the ground, jump
         if (Input.GetKeyDown(KeyCode.W) && (PlayerOnGround == 1) && !(Input.GetKey(KeyCode.LeftShift)))
@@ -92,7 +83,6 @@ public class PlayerControlScript : MonoBehaviour {
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (PlayerFallMult - 1) * Time.fixedDeltaTime;
          
-
         }
 
         //Applies multiplier for a lower jump by tapping the jump key

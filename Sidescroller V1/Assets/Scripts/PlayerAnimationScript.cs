@@ -9,24 +9,24 @@ public class PlayerAnimationScript : MonoBehaviour {
     //Variable for changing animation frames
     int AnimationFrame;
 
-    //Public variable for spell casting script
-    public int PlayerSpellCastState;
 
     //Public variables from other scripts
     static int PlayerOnGround;
+
 
     //Arrays where animation frames are stored
     public Texture[] PlayerWalkFrames;
     public Texture[] PlayerIdleFrames;
     public Texture[] PlayerJumpFrames;
     public Texture[] PlayerFallFrames;
-    public Texture[] PlayerSpellChargeFrames;
+ 
    
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
         PlayerOnGround = GroundScript.PlayerOnGround;
+
 
         //Timers for animation functions
         InvokeRepeating("MoveRight",0,0.125f);
@@ -36,17 +36,11 @@ public class PlayerAnimationScript : MonoBehaviour {
         InvokeRepeating("SpellChain", 0, 0.125f);
         InvokeRepeating("SpellChain", 0, 0.125f);
         InvokeRepeating("SpellChain", 0, 0.125f);
-        InvokeRepeating("ResetSpellChain", 0, 2);
        
-        
-  
+         
     }
  
- void ResetSpellChain()
-    {
-        PlayerSpellCastState = 0;
-    }
-    
+
     void Idle()
     {
         if (!(Input.GetKey(KeyCode.D)))
@@ -116,27 +110,7 @@ public class PlayerAnimationScript : MonoBehaviour {
         }
     }
 
-    void SpellChain()
-    {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            AnimationFrame++;
-            AnimationFrame %= PlayerSpellChargeFrames.Length;
-            GetComponent<Renderer>().material.mainTexture = PlayerSpellChargeFrames[AnimationFrame];
-            
-
-            if ((Input.GetKeyDown(KeyCode.D)))
-            {
-                PlayerSpellCastState = 1;
-            }
-
-            if ((Input.GetKeyDown(KeyCode.W)))
-            {
-                PlayerSpellCastState = 2;
-            }
-        }
-    }
-
+  
   
    
     // Update is called once per frame
