@@ -42,9 +42,7 @@ public class PlayerSpellCastScript : MonoBehaviour {
 
             if ((Input.GetKeyDown(KeyCode.D)))
             {
-                AnimationFrame++;
-                AnimationFrame %= PlayerSpellCastFramesRight.Length;
-                GetComponent<Renderer>().material.mainTexture = PlayerSpellCastFramesRight[AnimationFrame];
+                PlayerSpellCastState = 1;
             }
 
             if ((Input.GetKeyDown(KeyCode.W)))
