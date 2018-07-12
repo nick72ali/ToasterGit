@@ -9,18 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
+<<<<<<< HEAD:Sidescroller V1/Assets/prefab/Particles/Leaves.prefab
   m_RootGameObject: {fileID: 1140712756187284}
   m_IsPrefabParent: 1
 --- !u!1 &1140712756187284
+=======
+  m_RootGameObject: {fileID: 1878290622687938}
+  m_IsPrefabParent: 1
+--- !u!1 &1878290622687938
+>>>>>>> Grim:Sidescroller V1/Assets/prefab/Particles/Leaves.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
+<<<<<<< HEAD:Sidescroller V1/Assets/prefab/Particles/Leaves.prefab
   - component: {fileID: 4460630912408404}
   - component: {fileID: 198382022829754328}
   - component: {fileID: 199660594516383234}
+=======
+  - component: {fileID: 4983135365124516}
+  - component: {fileID: 198495104148728268}
+  - component: {fileID: 199755534350853232}
+>>>>>>> Grim:Sidescroller V1/Assets/prefab/Particles/Leaves.prefab
   m_Layer: 0
   m_Name: Leaves
   m_TagString: Untagged
@@ -28,12 +40,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Sidescroller V1/Assets/prefab/Particles/Leaves.prefab
 --- !u!4 &4460630912408404
+=======
+--- !u!4 &4983135365124516
+>>>>>>> Grim:Sidescroller V1/Assets/prefab/Particles/Leaves.prefab
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Sidescroller V1/Assets/prefab/Particles/Leaves.prefab
   m_GameObject: {fileID: 1140712756187284}
+=======
+  m_GameObject: {fileID: 1878290622687938}
+>>>>>>> Grim:Sidescroller V1/Assets/prefab/Particles/Leaves.prefab
   m_LocalRotation: {x: 0.7011198, y: -0, z: -0, w: 0.7130435}
   m_LocalPosition: {x: 2.1775517, y: 5.2000003, z: 0.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,12 +61,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 89.034004, y: 0, z: 0}
+<<<<<<< HEAD:Sidescroller V1/Assets/prefab/Particles/Leaves.prefab
 --- !u!198 &198382022829754328
+=======
+--- !u!198 &198495104148728268
+>>>>>>> Grim:Sidescroller V1/Assets/prefab/Particles/Leaves.prefab
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Sidescroller V1/Assets/prefab/Particles/Leaves.prefab
   m_GameObject: {fileID: 1140712756187284}
+=======
+  m_GameObject: {fileID: 1878290622687938}
+>>>>>>> Grim:Sidescroller V1/Assets/prefab/Particles/Leaves.prefab
   serializedVersion: 5
   lengthInSec: 5
   simulationSpeed: 1
@@ -4572,13 +4600,21 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+<<<<<<< HEAD:Sidescroller V1/Assets/prefab/Particles/Leaves.prefab
 --- !u!199 &199660594516383234
+=======
+--- !u!199 &199755534350853232
+>>>>>>> Grim:Sidescroller V1/Assets/prefab/Particles/Leaves.prefab
 ParticleSystemRenderer:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Sidescroller V1/Assets/prefab/Particles/Leaves.prefab
   m_GameObject: {fileID: 1140712756187284}
+=======
+  m_GameObject: {fileID: 1878290622687938}
+>>>>>>> Grim:Sidescroller V1/Assets/prefab/Particles/Leaves.prefab
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
