@@ -40,9 +40,15 @@ public class PlayerSpellCastScript : MonoBehaviour {
             GetComponent<Renderer>().material.mainTexture = PlayerSpellChargeFrames[AnimationFrame];
 
 
-            if ((Input.GetKeyDown(KeyCode.D)))
+            if ((Input.GetKey(KeyCode.D)))
             {
-                PlayerSpellCastState = 1;
+                if (Input.GetKeyUp(KeyCode.LeftShift) && (Input.GetKeyUp(KeyCode.D)))
+                {
+                    AnimationFrame++;
+                    AnimationFrame %= PlayerSpellCastFramesRight.Length;
+                    GetComponent<Renderer>().material.mainTexture = PlayerSpellCastFramesRight[AnimationFrame];
+                }
+
             }
 
             if ((Input.GetKeyDown(KeyCode.W)))
@@ -57,9 +63,7 @@ public class PlayerSpellCastScript : MonoBehaviour {
         
         if (PlayerSpellCastState == 1)
         {
-            AnimationFrame++;
-            AnimationFrame %= PlayerSpellCastFramesRight.Length;
-            GetComponent<Renderer>().material.mainTexture = PlayerSpellCastFramesRight[AnimationFrame];
+     
         }
     }
 
