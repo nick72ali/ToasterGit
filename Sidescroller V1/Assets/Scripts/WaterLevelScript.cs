@@ -11,7 +11,7 @@ public class WaterLevelScript : MonoBehaviour {
 
     private void Start()
     {
-        InvokeRepeating("MoveWater", 0, 0.1f);
+        InvokeRepeating("MoveWater", 0, 0.05f);
     }
     void MoveWater()
     {
