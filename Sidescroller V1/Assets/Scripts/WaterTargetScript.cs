@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class WaterTargetScript : MonoBehaviour {
 
-
+    private void Start()
+    {
+        InvokeRepeating("WaterUp", 0, 10);
+        InvokeRepeating("WaterDown", 0, 15);
+    }
 
     void WaterUp()
     {
-        transform.position = new Vector3(0, 0.2f, 0);
+        transform.position = new Vector3(0, 0.06f, 0);
 
     }
 
