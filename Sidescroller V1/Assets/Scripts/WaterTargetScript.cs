@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class WaterTargetScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+
+    void WaterUp()
+    {
+        transform.position = new Vector3(0, 0.2f, 0);
+
+    }
+
+    void WaterDown()
+    {
+        transform.position = new Vector3(0, 0, 0);
+    }
 }
