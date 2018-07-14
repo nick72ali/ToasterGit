@@ -25,7 +25,7 @@ public class PlayerAnimationScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
-        PlayerOnGround = GroundScript.PlayerOnGround;
+ 
 
 
         //Timers for animation functions
@@ -98,16 +98,20 @@ public class PlayerAnimationScript : MonoBehaviour {
     }
      void Fall()
     {   
-        if (rb.velocity.y < 0)
-        {
-           
-            
+        
+            if (rb.velocity.y < 0)
+            {
+
+            if (PlayerOnGround == 0)
+            {
                 AnimationFrame++;
                 AnimationFrame %= PlayerFallFrames.Length;
                 GetComponent<Renderer>().material.mainTexture = PlayerFallFrames[AnimationFrame];
-            
+            }
+
+
+            }
      
-        }
     }
 
   
@@ -116,5 +120,6 @@ public class PlayerAnimationScript : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         Debug.Log("Player velocity is" + rb.velocity.y);
-	}
+        PlayerOnGround = GroundScript.PlayerOnGround;
+    }
 }

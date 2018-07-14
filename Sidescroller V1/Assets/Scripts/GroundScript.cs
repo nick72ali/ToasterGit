@@ -6,7 +6,7 @@ using UnityEngine;
 public class GroundScript : MonoBehaviour {
 
     //Declare variable for ground state
-    public static int PlayerOnGround = 0;
+    public static int PlayerOnGround;
 
     //Depending on player position relative to the ground, it will assign a value to the ground state variable
     public void OnCollisionEnter(Collision PlayerTouch)
@@ -19,7 +19,7 @@ public class GroundScript : MonoBehaviour {
     public void OnCollisionExit(Collision PlayerTouch)
     {
 
-        PlayerOnGround = 2;
+        PlayerOnGround = 0;
         Debug.Log("Player is off the ground");
       
     }
