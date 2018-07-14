@@ -18,17 +18,8 @@ public class PlayerSpellCastScript : MonoBehaviour {
     void Start () {
 
 
-        InvokeRepeating("SpellChain", 0, 0.125f);
-        InvokeRepeating("CastFireBallRight", 0, 0.125f);
-        InvokeRepeating("CastFireBallUpRight", 0, 0.125f);
-        InvokeRepeating("ResetState", 0, 0.125f);
-      
 	}
 
-    void ResetState()
-    {
-        PlayerSpellCastState = 0;
-    }
 
     void SpellChain()
     {
@@ -44,41 +35,49 @@ public class PlayerSpellCastScript : MonoBehaviour {
             {
                 if (Input.GetKeyUp(KeyCode.LeftShift) && (Input.GetKeyUp(KeyCode.D)))
                 {
-                    AnimationFrame++;
-                    AnimationFrame %= PlayerSpellCastFramesRight.Length;
-                    GetComponent<Renderer>().material.mainTexture = PlayerSpellCastFramesRight[AnimationFrame];
+                    InvokeRepeating("CastFireBallRight", 0, 0.125f);
                 }
 
             }
 
             if ((Input.GetKeyDown(KeyCode.W)))
             {
-                PlayerSpellCastState = 2;
+                if (Input.GetKeyUp(KeyCode.LeftShift) && (Input.GetKeyUp(KeyCode.W)))
+                {
+                    InvokeRepeating("CastFireBallUpRight", 0, 0.125f);
+                }
             }
         }
     }
 
     void CastFireBallRight()
     {
-        
-        if (PlayerSpellCastState == 1)
-        {
-     
-        }
+
+
+        AnimationFrame++;
+        AnimationFrame %= PlayerSpellCastFramesRight.Length;
+        GetComponent<Renderer>().material.mainTexture = PlayerSpellCastFramesRight[AnimationFrame];
+
+
     }
 
     void CastFireBallUpRight()
     {
-       
-        if (PlayerSpellCastState == 2)
-        {
-            AnimationFrame++;
-            AnimationFrame %= PlayerSpellCastUpFramesRight.Length;
-            GetComponent<Renderer>().material.mainTexture = PlayerSpellCastUpFramesRight[AnimationFrame];
-        }
+
+        AnimationFrame++;
+        AnimationFrame %= PlayerSpellCastUpFramesRight.Length;
+        GetComponent<Renderer>().material.mainTexture = PlayerSpellCastUpFramesRight[AnimationFrame];
+
     }
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("SpellCast State is" + PlayerSpellCastState);
+      
+
+
+
+
+
+
+
 	}
 }
