@@ -16,14 +16,14 @@ public class PlayerSpellCastScript : MonoBehaviour {
     
     // Use this for initialization
     void Start () {
-
+       InvokeRepeating("SpellChain", 0, 0.125f);
 
 	}
 
 
     void SpellChain()
     {
-       
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
             AnimationFrame++;
@@ -31,12 +31,12 @@ public class PlayerSpellCastScript : MonoBehaviour {
             GetComponent<Renderer>().material.mainTexture = PlayerSpellChargeFrames[AnimationFrame];
 
 
-            if ((Input.GetKey(KeyCode.D)))
+            if ((Input.GetKeyUp(KeyCode.D)))
             {
-                if (Input.GetKeyUp(KeyCode.LeftShift) && (Input.GetKeyUp(KeyCode.D)))
-                {
+
+                
                     InvokeRepeating("CastFireBallRight", 0, 0.125f);
-                }
+                
 
             }
 
@@ -48,6 +48,8 @@ public class PlayerSpellCastScript : MonoBehaviour {
                 }
             }
         }
+
+
     }
 
     void CastFireBallRight()
@@ -58,7 +60,10 @@ public class PlayerSpellCastScript : MonoBehaviour {
         AnimationFrame %= PlayerSpellCastFramesRight.Length;
         GetComponent<Renderer>().material.mainTexture = PlayerSpellCastFramesRight[AnimationFrame];
 
-
+        if (AnimationFrame == 3)
+        {
+            CancelInvoke("CastFireBallRight");
+        }
     }
 
     void CastFireBallUpRight()
@@ -71,13 +76,11 @@ public class PlayerSpellCastScript : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-      
 
 
 
 
 
 
-
-	}
+    }
 }
