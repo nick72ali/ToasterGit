@@ -33,10 +33,7 @@ public class PlayerAnimationScript : MonoBehaviour {
         InvokeRepeating("Idle", 0, 0.125f);
         InvokeRepeating("Jump", 0, 0.125f);
         InvokeRepeating("Fall", 0, 0.125f);
-        InvokeRepeating("SpellChain", 0, 0.125f);
-        InvokeRepeating("SpellChain", 0, 0.125f);
-        InvokeRepeating("SpellChain", 0, 0.125f);
-       
+         
          
     }
  
@@ -63,6 +60,7 @@ public class PlayerAnimationScript : MonoBehaviour {
         }
 
     }
+
     void MoveRight()
     {
         if (Input.GetKey(KeyCode.D))
@@ -83,43 +81,44 @@ public class PlayerAnimationScript : MonoBehaviour {
         {
             if (rb.velocity.y > 0.5f)
             {
-                
-                
+                              
                     AnimationFrame++;
                     AnimationFrame %= PlayerJumpFrames.Length;
                     GetComponent<Renderer>().material.mainTexture = PlayerJumpFrames[AnimationFrame];
-                
-           
+                          
             }
         
             
 
         }
     }
+
      void Fall()
     {   
         
             if (rb.velocity.y < 0)
             {
-
-            if (PlayerOnGround == 0)
-            {
+                     
                 AnimationFrame++;
                 AnimationFrame %= PlayerFallFrames.Length;
                 GetComponent<Renderer>().material.mainTexture = PlayerFallFrames[AnimationFrame];
-            }
-
 
             }
-     
+
+        if (PlayerOnGround == 1)
+        {
+            AnimationFrame++;
+            AnimationFrame %= PlayerFallFrames.Length;
+            GetComponent<Renderer>().material.mainTexture = PlayerIdleFrames[AnimationFrame];
+        }
+
     }
-
   
-  
-   
     // Update is called once per frame
     void Update () {
-        Debug.Log("Player velocity is" + rb.velocity.y);
+
+        Debug.Log(PlayerOnGround);
         PlayerOnGround = GroundScript.PlayerOnGround;
+
     }
 }
