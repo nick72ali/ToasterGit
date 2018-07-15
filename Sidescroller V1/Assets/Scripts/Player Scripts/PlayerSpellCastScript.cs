@@ -30,17 +30,16 @@ public class PlayerSpellCastScript : MonoBehaviour {
             AnimationFrame %= PlayerSpellChargeFrames.Length;
             GetComponent<Renderer>().material.mainTexture = PlayerSpellChargeFrames[AnimationFrame];
 
+                if (Input.GetKeyUp(KeyCode.LeftShift) && (Input.GetKeyUp(KeyCode.D)))
+                {
 
-            if ((Input.GetKeyUp(KeyCode.D)))
-            {
-
-                
-                    InvokeRepeating("CastFireBallRight", 0, 0.125f);
-                
+                AnimationFrame++;
+                AnimationFrame %= PlayerSpellCastFramesRight.Length;
+                GetComponent<Renderer>().material.mainTexture = PlayerSpellCastFramesRight[AnimationFrame];
 
             }
 
-            if ((Input.GetKeyDown(KeyCode.W)))
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 if (Input.GetKeyUp(KeyCode.LeftShift) && (Input.GetKeyUp(KeyCode.W)))
                 {
@@ -56,14 +55,7 @@ public class PlayerSpellCastScript : MonoBehaviour {
     {
 
 
-        AnimationFrame++;
-        AnimationFrame %= PlayerSpellCastFramesRight.Length;
-        GetComponent<Renderer>().material.mainTexture = PlayerSpellCastFramesRight[AnimationFrame];
-
-        if (AnimationFrame == 3)
-        {
-            CancelInvoke("CastFireBallRight");
-        }
+ 
     }
 
     void CastFireBallUpRight()

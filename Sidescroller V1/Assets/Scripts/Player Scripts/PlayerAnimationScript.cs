@@ -105,7 +105,7 @@ public class PlayerAnimationScript : MonoBehaviour {
 
             }
 
-        if (PlayerOnGround == 1)
+        if (PlayerOnGround == 1 && (Input.GetKey(KeyCode.W) && !(Input.GetKey(KeyCode.D))))
         {
             AnimationFrame++;
             AnimationFrame %= PlayerFallFrames.Length;
