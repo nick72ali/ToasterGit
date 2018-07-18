@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class PlayerAnimationScript : MonoBehaviour {
 
-    //Creates variable "rb" for storage of the rigidbody
     Rigidbody rb;
 
     //Variable for changing animation frames
     int AnimationFrame;
-
-    //Variable for player direction
-    int PlayerDirection = 1;
 
 
     //Public variables from other scripts
@@ -28,8 +24,6 @@ public class PlayerAnimationScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        
-        //Sets empty variable "rb" to the rigidbody of this gameobject
         rb = GetComponent<Rigidbody>();
  
 
@@ -39,10 +33,10 @@ public class PlayerAnimationScript : MonoBehaviour {
         InvokeRepeating("Idle", 0, 0.125f);
         InvokeRepeating("Jump", 0, 0.125f);
         InvokeRepeating("Fall", 0, 0.125f);
-        InvokeRepeating("FallFix", 0, 0.125f);
          
          
     }
+ 
 
     void Idle()
     {
@@ -66,7 +60,7 @@ public class PlayerAnimationScript : MonoBehaviour {
         }
 
     }
-    
+
     void MoveRight()
     {
         if (Input.GetKey(KeyCode.D))
@@ -111,11 +105,6 @@ public class PlayerAnimationScript : MonoBehaviour {
 
             }
 
-
-    }
-
-    void FallFix()
-    {
         if (PlayerOnGround == 1 && (Input.GetKey(KeyCode.W) && !(Input.GetKey(KeyCode.D))))
         {
             AnimationFrame++;
@@ -124,7 +113,7 @@ public class PlayerAnimationScript : MonoBehaviour {
         }
 
     }
-
+  
     // Update is called once per frame
     void Update () {
 
